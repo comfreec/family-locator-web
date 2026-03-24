@@ -72,12 +72,20 @@ export default function MapPage() {
             </span>
           )}
         </div>
-        <button
-          onClick={logout}
-          className="text-sm text-gray-500 hover:text-red-500 transition"
-        >
-          로그아웃
-        </button>
+        <div className="flex items-center gap-3">
+          <button
+            onClick={() => router.push('/admin')}
+            className="text-sm text-gray-400 hover:text-blue-500 transition"
+          >
+            🔐
+          </button>
+          <button
+            onClick={logout}
+            className="text-sm text-gray-500 hover:text-red-500 transition"
+          >
+            로그아웃
+          </button>
+        </div>
       </header>
 
       {locError && (
