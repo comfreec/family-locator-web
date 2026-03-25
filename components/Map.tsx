@@ -68,6 +68,19 @@ interface Props {
 export default function Map({ members, currentUid }: Props) {
   const center: [number, number] = [37.5665, 126.978];
 
+  // 줌 버튼 클릭 시 포커스로 인한 레이아웃 리사이즈 방지
+  useEffect(() => {
+    const handler = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      if (target.closest('.leaflet-control-zoom')) {
+        e.preventDefault();
+        (document.activeElement as HTMLElement)?.blur();
+      }
+    };
+    document.addEventListener('mousedown', handler);
+    return () => document.removeEventListener('mousedown', handler);
+  }, []);
+
   return (
     <MapContainer
       center={center}

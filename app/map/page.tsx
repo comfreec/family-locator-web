@@ -58,7 +58,7 @@ export default function MapPage() {
   };
 
   return (
-    <div className="flex flex-col h-screen bg-gray-50">
+    <div className="flex flex-col bg-gray-50" style={{ height: '100dvh', overflow: 'hidden' }}>
       {/* 헤더 */}
       <header className="bg-white shadow-sm px-4 py-3 flex items-center justify-between z-10">
         <div className="flex items-center gap-2">
@@ -112,7 +112,7 @@ export default function MapPage() {
 
       {/* 지도 탭 */}
       {tab === 'map' && (
-        <div className="flex-1 relative overflow-hidden" style={{ minHeight: 0 }}>
+        <div className="relative" style={{ flex: '1 1 0', minHeight: 0, overflow: 'hidden' }}>
           {!family ? (
             <div className="flex flex-col items-center justify-center h-full gap-4 p-8">
               <div className="text-6xl">🏠</div>
