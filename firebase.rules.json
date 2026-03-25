@@ -1,18 +1,16 @@
 {
   "rules": {
     "users": {
+      ".read": "auth != null",
       "$uid": {
-        ".read": "auth != null",
         ".write": "auth != null && auth.uid === $uid"
       }
     },
     "families": {
+      ".read": "auth != null && root.child('admin/uid').val() === auth.uid",
       "$familyId": {
         ".read": "auth != null && data.child('members').child(auth.uid).exists()",
-        ".write": "auth != null && (
-          !data.exists() ||
-          data.child('members').child(auth.uid).exists()
-        )"
+        ".write": "auth != null && (!data.exists() || data.child('members').child(auth.uid).exists())"
       }
     },
     "inviteCodes": {
