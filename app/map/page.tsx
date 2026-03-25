@@ -112,7 +112,7 @@ export default function MapPage() {
 
       {/* 지도 탭 */}
       {tab === 'map' && (
-        <div className="flex-1 relative">
+        <div className="flex-1 relative overflow-hidden" style={{ minHeight: 0 }}>
           {!family ? (
             <div className="flex flex-col items-center justify-center h-full gap-4 p-8">
               <div className="text-6xl">🏠</div>

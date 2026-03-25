@@ -72,7 +72,7 @@ export default function Map({ members, currentUid }: Props) {
     <MapContainer
       center={center}
       zoom={12}
-      style={{ height: '100%', width: '100%' }}
+      style={{ height: '100%', width: '100%', zIndex: 0 }}
       zoomControl={true}
     >
       <TileLayer
